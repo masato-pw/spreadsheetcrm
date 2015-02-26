@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>ProsperWorks | Spreadsheet CRM</title>
+
+  <meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="components/webcomponentsjs/webcomponents.js">
+  </script>
+
+  <link rel="import" href="components/font-roboto/roboto.html">
+  <link rel="import" href="components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="components/paper-button/paper-button.html">
+  <link rel="import" href="components/paper-input/paper-input.html">
+  <link rel="import" href="components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="components/core-collapse/core-collapse.html">
+  <link rel="import" href="components/core-menu/core-menu.html">
+  <link rel="import" href="components/paper-dropdown/paper-dropdown.html">
+  <link rel="import" href="components/paper-item/paper-item.html">
+  <link rel="import" href="main-footer.html">
+
+  <style>
+    html,body {
+      height: 100%;
+      margin: 0;
+      background-color: #E5E5E5;
+      font-family: 'RobotoDraft', sans-serif;
+    }
+    textarea {
+      height: 22px;
+      font-size: 15px;
+      padding: 0;
+      margin: 0;
+      width: 100% ;
+    }
+    .main_container {
+      width: 1200px;
+      margin: 70px auto 0 auto
+    }
+    core-header-panel {
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch; 
+    }
+    core-toolbar {
+      background: #fff;
+      color: 888;
+    }
+    #tabs {
+      width: 100%;
+      margin: 0;
+      padding-left: 60px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-transform: uppercase;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+    }
+    @media (min-width: 481px) {
+      #tabs {
+        width: 480px;
+      }
+      .container {
+        width: 1200px;
+      }
+    }
+    paper-tabs.transparent-teal::shadow #selectionBar {
+     background-color: #4285F4;
+   }
+    paper-button.hover:hover {
+      background: #CCC;
+    }
+    .header_logo {
+      margin: 0 20px 0 60px;
+    }
+    .selected {
+      color: #363636 !important;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 0 0 60px;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      height: 58px;
+      vertical-align: middle;
+      z-index: 1000000
+    }
+    .footer p {
+      font-family: roboto;
+      font-size: 11px;
+      color: #C1C1C1;
+      line-height: 38px;
+      vertical-align: middle;
+    }
+    #card {
+      display: block;
+      margin: 40px auto 140px auto;
+      padding:  18px 36px 28px 36px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      border-radius: 2px;
+      overflow: hidden;
+      width: 420px;
+    }
+    .about-tile {
+      font-family: 'RobotoDraft', sans-serif;
+      font-size: 28px;
+      color: #363636;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    .about-body {
+      font-family: Roboto;
+      font-size: 16px;
+      color: #888888;
+      line-height: 16px;
+      text-align: center;
+    }
+    paper-button[raised].colored {
+      background: #4285f4;
+      color: #fff;
+      width: 416px;
+      height: 48px;
+      font-weight: 500;
+      font-family: roboto;
+      margin-top: 20px;
+      line-height: 28px;
+    }
+    .input-name-left {
+      width: 45%; 
+      display: inline-block;
+    }
+    .input-name-right {
+      width: 45%; 
+      display: inline-block; 
+      margin-left: 36px;
+    }
+    .no-obligation {
+      font-family: Roboto-Regular;
+      font-size: 11px;
+      color: rgba(135,135,135,0.86);
+      line-height: 13px;
+      text-align: center;
+    }
+ </style>
+
+ <style shim-shadowdom>
+  section {
+    padding: 20px 0;
+  }
+  section > div {
+    padding: 14px;
+    font-size: 16px;
+  }
+  paper-button.colored {
+    color: #888;
+  }
+  paper-button[raised].colored {
+    background: #4285f4;
+    color: #fff;
+  }
+  paper-button.custom > core-icon {
+    margin-right: 4px;
+  }
+  paper-button.hover:hover {
+    background: #eee;
+  }
+  paper-button.blue-ripple::shadow #ripple {
+    color: #4285f4;
+  }
+</style>
+
+</head>
+
+<body unresolved>
+  <core-header-panel>
+  <core-toolbar>
+  <div class="header_logo">
+    <a href="index.html"><img class="header_logo" src="images/logo.png"></a>
+  </div>
+  <div class="button-content" relative="" layout="" horizontal="" center-center="">
+    <content></content>
+  </div>
+
+  <paper-button class="colored selected" role="button" tabindex="0" onclick="setTimeout('location.href=\'index.html\'', 500);">HOME</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="setTimeout('location.href=\'features.html\'', 500);">FEATURES</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="setTimeout('location.href=\'about.html\'', 500);">ABOUT</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="javascript:window.location='mailto:?subject=Spreadsheet CRM&body=: ' + window.location;">CONTACT</paper-button>
+
+
+</core-toolbar>
+
+<div class="main_container">
+<p class="about-tile">The Simple CRM for Google Spreadsheet</p>
+<p class="about-body">Start selling more now - 100% free</p>
+
+  <div id="card" style="display: block;" class="">
+
+
+<div class="input-name-left">
+    <paper-input-decorator label="First Name" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+</div>
+<div class="input-name-right">
+    <paper-input-decorator label="Last Name" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+</div>
+    <paper-input-decorator label="Company Name" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+
+    <paper-input-decorator label="Email Address" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+
+    <paper-input-decorator label="Phone Number" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+
+<!--     <paper-input-decorator label="Industry" floatinglabel="" layout="" vertical="">
+      <paper-autogrow-textarea>
+        <textarea></textarea>
+      </paper-autogrow-textarea>
+    </paper-input-decorator>
+ -->
+    <paper-dropdown-menu label="Company Size" relative="" layout="" inline="" horizontal="" center="" tabindex="0" valign="bottom">
+      <paper-dropdown class="dropdown core-transition core-closed" tabindex="-1" style="outline: none; display: none;">
+        <core-menu class="menu">
+          <template repeat="{{pastries}}"></template>
+            <paper-item tabindex="0">1-10</paper-item>
+            <paper-item tabindex="0">11-30</paper-item>
+            <paper-item tabindex="0">31-100</paper-item>
+            <paper-item tabindex="0">100+</paper-item>
+        </core-menu>
+      </paper-dropdown>
+    </paper-dropdown-menu>
+
+<div>
+  <paper-button raised class="colored">SIGN UP FOR FREE</paper-button>
+  <p class="no-obligation">No Obligation, no credit card required</p>
+</div>
+
+  </div>
+</div>
+  <div class="footer">
+    <p>ProsperWorks, Inc. © 2015. All Rights Reserved.</p>
+  </div>
+</core-header-panel>
+
+<script>
+
+</script>
+</body>
+
+</html>

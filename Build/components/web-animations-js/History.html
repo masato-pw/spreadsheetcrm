@@ -1,0 +1,96 @@
+<h3>1.0.5 - <em>January 6 2015</em></h3>
+
+<ul>
+  <li>Fix loading the polyfill in an SVG document</li>
+  <li>Fix a problem where groups didn’t take effect in their first frame</li>
+  <li>Don’t rely on performance.now</li>
+</ul>
+
+<h3>1.0.4 - <em>December 8 2014</em></h3>
+
+<ul>
+  <li>Fix a critical bug where deprecation logic wasn’t being loaded
+when <code>web-animations-next</code> and <code>web-animations-next-lite</code> were
+executed on top of a native <code>element.animate</code>.</li>
+</ul>
+
+<h3>1.0.3 - <em>December 4 2014</em></h3>
+
+<ul>
+  <li>Fix a critical bug on iOS 7 and Safari &lt;= 6. Due to limitations,
+inline style patching is not supported on these platforms.</li>
+</ul>
+
+<h3>1.0.2 - <em>November 28 2014</em></h3>
+
+<ul>
+  <li>
+    <p>Deprecated <code>AnimationTiming.playbackRate</code>.</p>
+
+    <p>For example, this is no longer supported:</p>
+
+    <pre><code>var player = element.animate(
+    keyframes,
+    {duration: 1000, playbackRate: 2});
+</code></pre>
+
+    <p>Use <code>AnimationPlayer.playbackRate</code> instead:</p>
+
+    <pre><code>var player = element.animate(
+    keyframes,
+    {duration: 1000});
+player.playbackRate = 2;
+</code></pre>
+
+    <p>If you have any feedback on this change, please start a discussion
+on the public-fx mailing list:
+http://lists.w3.org/Archives/Public/public-fx/</p>
+
+    <p>Or file an issue against the specification on GitHub:
+https://github.com/w3c/web-animations/issues/new</p>
+  </li>
+</ul>
+
+<h3>1.0.1 - <em>November 26 2014</em></h3>
+
+<ul>
+  <li>Players should be constructed in idle state</li>
+  <li><code>play()</code> and <code>reverse()</code> should not force a start times</li>
+  <li>Add <code>requestAnimationFrame</code> ids and <code>cancelAnimationFrame</code></li>
+</ul>
+
+<h3>1.0.0 — <em>November 21 2014</em></h3>
+
+<p>The web-animations-js hackers are pleased to announce the release of
+  a new codebase for the Web Animations Polyfill:
+  https://github.com/web-animations/web-animations-js</p>
+
+<p>The previous polyfill has been moved to:
+  https://github.com/web-animations/web-animations-js-legacy</p>
+
+<p>The new codebase is focused on code-size – our smallest target is
+  now only 33kb or 11kb after gzip.</p>
+
+<p>We’ve implemented native fallback. If the target browser provides
+  Web Animations features natively, the Polyfill will use them.</p>
+
+<p>We now provide three different build targets:</p>
+
+<p><code>web-animations.min.js</code> - Tracks the Web Animations features that
+  are supported natively in browsers. Today that means Element.animate
+  and Playback Control in Chrome. If you’re not sure what features you
+  will need, start with this.</p>
+
+<p><code>web-animations-next.min.js</code> - All of web-animations.min.js plus
+  features that are still undergoing discussion or have yet to be
+  implemented natively.</p>
+
+<p><code>web-animations-next-lite.min.js</code> - A cut down version of
+  web-animations-next, removes several lesser used property handlers
+  and some of the larger and less used features such as matrix
+  interpolation/decomposition.</p>
+
+<p>Not all features of the previous polyfill have been ported to the
+  new codebase; most notably mutation of Animations and Groups and
+  Additive Animations are not yet supported. These features are still
+  important and will be implemented in the coming weeks.</p>

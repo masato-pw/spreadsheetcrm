@@ -1,0 +1,56 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="components/paper-button/paper-button.html">
+
+<polymer-element name="features-dashboard">
+  <template>
+
+    <style>
+      .left-image{
+        display: inline-block;
+        width: 520px;
+        margin: 0 0 0 60px;
+        }
+      .right-text {
+        display: inline-block;
+        margin: 0 0 0 60px;
+        font-size: 28px;
+        width: 426px;
+        vertical-align: top;
+        font-weight: 200;
+        font-family: roboto;
+        }
+      .right-text p.carousel-title {
+        line-height: 42px;
+        margin: 120px 0 0 0;
+        padding: 0;
+        }
+      .right-text p.carousel-description {
+        line-height: 42px;
+        margin: 20px 0 0 0;
+        padding: 0;
+        font-size: 16px;
+        color: #888888;
+        line-height: 24px;
+        }
+      paper-button[raised].colored {
+        background: #4285f4;
+        color: #fff;
+        width: 251px;
+        font-weight: 500;
+        font-family: roboto;
+        margin-top: 20px;
+      }
+  
+    </style>
+
+    <div class="left-image"><img src="<!-- @path dashboard.png -->"></div>
+    <div class="right-text">
+    <p class="carousel-title">Get a glance summary<br> of key customer information</p>
+    <p class="carousel-description">Your dashboard is your home screen.You get the <br> important sales numbers such as pipeline value<br> by stages with easy to understand graphs.
+    </div>
+
+  </template>
+    <script>
+  Polymer({});
+  </script>
+</polymer-element>

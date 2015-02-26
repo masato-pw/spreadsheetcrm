@@ -1,0 +1,243 @@
+<h2>Quick Start</h2>
+
+<p>To provide native Chrome Web Animation features (<code>Element.animate</code> and Playback
+Control) in other browsers, use <code>web-animations.min.js</code>. To explore all of the
+proposed Web Animations API, use <code>web-animations-next.min.js</code>.</p>
+
+<h2>What is Web Animations?</h2>
+
+<p>Web Animations is a new JavaScript API for driving animated content on the web.
+By unifying the animation features of SVG and CSS, Web Animations unlocks
+features previously only usable declaratively, and exposes powerful,
+high-performance animation capabilities to developers.</p>
+
+<p>For more details see the
+<a href="http://w3c.github.io/web-animations/">W3C specification</a>.</p>
+
+<h2>What is the polyfill?</h2>
+
+<p>The polyfill is a JavaScript implementation of the Web Animations API. It works
+on modern versions of all major browsers. For more details about browser
+support see <a href="https://www.polymer-project.org/resources/compatibility.html">https://www.polymer-project.org/resources/compatibility.html</a>.</p>
+
+<h2>Getting Started</h2>
+
+<p>Here’s a simple example of an animation that scales and changes the opacity of
+a <code>&lt;div&gt;</code> over 0.5 seconds. The animation alternates producing a pulsing
+effect.</p>
+
+<pre><code>&lt;script src="web-animations.min.js"&gt;&lt;/script&gt;
+&lt;div class="pulse" style="width:150px;"&gt;Hello world!&lt;/div&gt;
+&lt;script&gt;
+    var elem = document.querySelector('.pulse');
+    var player = elem.animate([
+        {opacity: 0.5, transform: "scale(0.5)"},
+        {opacity: 1.0, transform: "scale(1)"}
+    ], {
+        direction: 'alternate',
+        duration: 500,
+        iterations: Infinity
+    });
+&lt;/script&gt;
+</code></pre>
+
+<p>Web Animations supports off-main-thread animations, and also allows procedural
+generation of animations and fine-grained control of animation playback. See
+<a href="http://web-animations.github.io">http://web-animations.github.io</a> for ideas and inspiration!</p>
+
+<h2>Native Fallback</h2>
+
+<p>When the polyfill runs on a browser that implements Element.animate and
+AnimationPlayer Playback Control it will detect and use the underlying native
+features.</p>
+
+<h2>Different Build Targets</h2>
+
+<h3>web-animations.min.js</h3>
+
+<p>Tracks the Web Animations features that are supported natively in browsers.
+Today that means Element.animate and Playback Control in Chrome. If you’re not
+sure what features you will need, start with this.</p>
+
+<h3>web-animations-next.min.js</h3>
+
+<p>Contains all of web-animations.min.js plus features that are still undergoing
+discussion or have yet to be implemented natively.</p>
+
+<h3>web-animations-next-lite.min.js</h3>
+
+<p>A cut down version of web-animations-next, it removes several lesser used
+property handlers and some of the larger and less used features such as matrix
+interpolation/decomposition.</p>
+
+<h3>Build Target Comparison</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">web-animations</th>
+      <th style="text-align: center">web-animations-next</th>
+      <th style="text-align: center">web-animations-next-lite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Size (gzipped)</td>
+      <td style="text-align: center">12.5kb</td>
+      <td style="text-align: center">14kb</td>
+      <td style="text-align: center">10.5kb</td>
+    </tr>
+    <tr>
+      <td>Element.animate</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Timing input (easings, duration, fillMode, etc.) for animations</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Playback control</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Support for animating lengths, transforms and opacity</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Support for Animating other CSS properties</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+    <tr>
+      <td>Matrix fallback for transform animations</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+    <tr>
+      <td>Animation constructor</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Simple Groups</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Custom Effects</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>Timing input (easings, duration, fillMode, etc.) for groups&lt;/div&gt;</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+    <tr>
+      <td>Additive animation</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+    <tr>
+      <td>Motion path</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+    <tr>
+      <td>Modifiable animation timing</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫*</td>
+    </tr>
+    <tr>
+      <td>Modifiable group timing</td>
+      <td style="text-align: center">🚫</td>
+      <td style="text-align: center">🚫*</td>
+      <td style="text-align: center">🚫*</td>
+    </tr>
+    <tr>
+      <td>Usable inline style**</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">✔</td>
+      <td style="text-align: center">🚫</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>* support is planned for these features.
+** see inline style caveat below.</p>
+
+<h2>Caveats</h2>
+
+<p>Some things won’t ever be faithful to the native implementation due to browser
+and CSS API limitations. These include:</p>
+
+<h3>Inline Style</h3>
+
+<p>Inline style modification is the mechanism used by the polyfill to animate
+properties. Both web-animations and web-animations-next incorporate a module
+that emulates a vanilla inline style object, so that style modification from
+JavaScript can still work in the presence of animations. However, to keep the
+size of web-animations-next-lite as small as possible, the style emulation
+module is not included. When using this version of the polyfill, JavaScript
+inline style modification will be overwritten by animations.
+Due to browser constraints inline style modification is not supported on iOS 7
+or Safari 6 (or earlier versions).</p>
+
+<h3>Prefix handling</h3>
+
+<p>The polyfill will automatically detect the correctly prefixed name to use when
+writing animated properties back to the platform. Where possible, the polyfill
+will only accept unprefixed versions of experimental features. For example:</p>
+
+<pre><code>var animation = new Animation(elem, {"transform": "translate(100px, 100px)"}, 2000);
+</code></pre>
+
+<p>will work in all browsers that implement a conforming version of transform, but</p>
+
+<pre><code>var animation = new Animation(elem, {"-webkit-transform": "translate(100px, 100px)"}, 2000);
+</code></pre>
+
+<p>will not work anywhere.</p>
+
+<h2>API and Specification Feedback</h2>
+
+<p>File an issue on GitHub: <a href="https://github.com/w3c/web-animations/issues/new">https://github.com/w3c/web-animations/issues/new</a>.
+Alternatively, send an email to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#117;&#098;&#108;&#105;&#099;&#045;&#102;&#120;&#064;&#119;&#051;&#046;&#111;&#114;&#103;">&#112;&#117;&#098;&#108;&#105;&#099;&#045;&#102;&#120;&#064;&#119;&#051;&#046;&#111;&#114;&#103;</a> with subject line
+“[web-animations] … message topic …”
+(<a href="http://lists.w3.org/Archives/Public/public-fx/">archives</a>).</p>
+
+<h2>Polyfill Issues</h2>
+
+<p>Report any issues with this implementation on GitHub:
+<a href="https://github.com/web-animations/web-animations-next/issues/new">https://github.com/web-animations/web-animations-next/issues/new</a>.</p>
+
+<h2>Breaking changes</h2>
+
+<p>When we make a potentially breaking change to the polyfill’s API
+surface (like a rename) where possible we will continue supporting the
+old version, deprecated, for three months, and ensure that there are
+console warnings to indicate that a change is pending. After three
+months, the old version of the API surface (e.g. the old version of a
+function name) will be removed. <em>If you see deprecation warnings you
+can’t avoid it by not updating</em>.</p>
+
+<p>We also announce anything that isn’t a bug fix on
+<a href="https://groups.google.com/forum/#!forum/web-animations-changes">web-animations-changes@googlegroups.com</a>.</p>

@@ -1,0 +1,56 @@
+<h2>pointer-gestures</h2>
+<blockquote>
+  <p>A set of rich gestures for desktop and mobile.</p>
+</blockquote>
+
+<p>Supported events:
+* down
+* up
+    * Same target as down, provides the element under the pointer with the relatedTarget property
+* trackstart
+* track
+    * Same target as down
+* trackend
+    * Same target as down, provides the element under the pointer with the relatedTarget property
+* tap
+    * Targets the nearest common ancestor of down and up.relatedTarget
+    * Can be prevented by calling any gesture event’s preventTap function
+* pinch
+* hold
+* holdpulse
+* release</p>
+
+<p>Not yet implemented:
+* flick
+* pinchstart
+* pinchend</p>
+
+<p>More info — https://groups.google.com/forum/#!topic/polymer-dev/ba4aDyOozm8</p>
+
+<h2>How to use</h2>
+
+<p>The element, or a parent of the element, should have the <code>touch-action="none"</code> attribute.</p>
+
+<p><code>javascript
+PolymerGestures.addEventListener(element, eventname, handler, capture);
+</code></p>
+
+<h2>How to build</h2>
+
+<p><code>bash
+mkdir gestures
+cd gestures
+git clone git@github.com:Polymer/tools.git
+git clone git@github.com:Polymer/polymer-gestures.git
+cd polymer-gestures
+npm install
+grunt
+</code></p>
+
+<h2>How to run</h2>
+<p><code>bash
+cd gestures
+python -m SimpleHTTPServer
+open http://localhost:8000/polymer-gestures/samples/simple/
+</code>
+More info — http://www.polymer-project.org/resources/tooling-strategy.html</p>

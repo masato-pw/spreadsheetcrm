@@ -1,0 +1,18 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/pw-spreadsheet-crm\/stylesheets\/partials\/header\.sass}line{font-family:\000031}}
+img .header_logo {
+  padding-left: 20px; }
+
+@media -sass-debug-info{filename{}line{font-family:\0000313}}
+#mainContainer {
+  background-color: #fafafa; }
+
+@media -sass-debug-info{filename{}line{font-family:\0000316}}
+.main_container {
+  width: 1200px;
+  margin: 0 auto 0 auto; }
+@media -sass-debug-info{filename{}line{font-family:\0000319}}
+  .main_container .left-image {
+    display: inline-block !important; }
+@media -sass-debug-info{filename{}line{font-family:\0000321}}
+  .main_container .right-text {
+    display: inline-block !important; }

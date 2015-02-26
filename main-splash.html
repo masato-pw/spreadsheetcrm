@@ -1,0 +1,48 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="components/paper-button/paper-button.html">
+
+<polymer-element name="main-splash">
+  <template>
+
+    <style>
+      .left-image{
+        display: inline-block;
+        width: 700px;
+        margin-left: 80px;
+        }
+      .right-text {
+        display: inline-block;
+        margin: 0 0 0 60px;
+        font-size: 28px;
+        width: 300px;
+        vertical-align: top;
+        font-weight: 200;
+        font-family: roboto;
+        }
+      .right-text p {
+        line-height: 42px;
+        margin: 160px 0 0 0;
+        padding: 0;
+        }
+      paper-button[raised].colored {
+        background: #4285f4;
+        color: #fff;
+        width: 251px;
+        font-weight: 500;
+        font-family: roboto;
+        margin-top: 20px;
+      }
+    </style>
+
+    <div class="left-image"><img src="<!-- @path splash_top.png -->"></div>
+    <div class="right-text">
+    <p>The Simple CRM <br>for Google Sheets</p>
+    
+    <paper-button raised class="colored" onclick="setTimeout('location.href=\'signup.html\'', 500);">SIGN UP FOR FREE</paper-button>
+    </div>
+
+  </template>
+    <script>
+  Polymer({});
+  </script>
+</polymer-element>

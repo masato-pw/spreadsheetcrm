@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>ProsperWorks | Spreadsheet CRM</title>
+
+  <meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="components/webcomponentsjs/webcomponents.js">
+  </script>
+
+  <link rel="import" href="components/font-roboto/roboto.html">
+  <link rel="import" href="components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="components/paper-button/paper-button.html">
+  <link rel="import" href="components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="post-list.html">
+  <link rel="import" href="main-splash.html">
+  <link rel="import" href="main-footer.html">
+
+  <style>
+    html,body {
+      height: 100%;
+      margin: 0;
+      background-color: #E5E5E5;
+      font-family: 'RobotoDraft', sans-serif;
+    }
+    .main_container {
+      width: 1200px;
+      margin: 70px auto 0 auto;
+      min-height:100%;
+    }
+    core-header-panel {
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch; 
+    }
+    core-toolbar {
+      background: #fff;
+      color: 888;
+    }
+    #tabs {
+      width: 100%;
+      margin: 0;
+      padding-left: 60px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-transform: uppercase;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+    }
+    @media (min-width: 481px) {
+      #tabs {
+        width: 480px;
+      }
+      .container {
+        width: 1200px;
+      }
+    }
+    paper-tabs.transparent-teal::shadow #selectionBar {
+     background-color: #4285F4;
+   }
+    paper-button.hover:hover {
+      background: #CCC;
+    }
+    .header_logo {
+      margin: 0 20px 0 60px;
+    }
+    .selected {
+      color: #363636 !important;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 0 0 60px;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      height: 58px;
+      vertical-align: middle;
+      z-index: 1000000
+    }
+    .footer p {
+      font-family: roboto;
+      font-size: 11px;
+      color: #C1C1C1;
+      line-height: 38px;
+      vertical-align: middle;
+    }
+ </style>
+
+ <style shim-shadowdom>
+  section {
+    padding: 20px 0;
+  }
+  section > div {
+    padding: 14px;
+    font-size: 16px;
+  }
+  paper-button.colored {
+    color: #888;
+  }
+  paper-button[raised].colored {
+    background: #4285f4;
+    color: #fff;
+  }
+  paper-button.custom > core-icon {
+    margin-right: 4px;
+  }
+  paper-button.hover:hover {
+    background: #eee;
+  }
+  paper-button.blue-ripple::shadow #ripple {
+    color: #4285f4;
+  }
+</style>
+
+</head>
+
+<body unresolved>
+  <core-header-panel>
+  <core-toolbar>
+  <div class="header_logo">
+    <a href="index.html"><img class="header_logo" src="<!-- @path logo.png -->"></a>
+  </div>
+  <div class="button-content" relative="" layout="" horizontal="" center-center="">
+    <content></content>
+  </div>
+
+  <paper-button class="colored selected" role="button" tabindex="0" onclick="setTimeout('location.href=\'index.html\'', 500);">HOME</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="setTimeout('location.href=\'features.html\'', 500);">FEATURES</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="setTimeout('location.href=\'about.html\'', 500);">ABOUT</paper-button>
+  <paper-button class="colored" role="button" tabindex="0" onclick="javascript:window.location='mailto:?subject=Spreadsheet CRM&body=: ' + window.location;">CONTACT</paper-button>
+
+</core-toolbar>
+
+<div class="main_container">
+  <main-splash></main-splash>
+    <div class="footer">
+    <p>ProsperWorks, Inc. © 2015. All Rights Reserved.</p>
+  </div>
+</core-header-panel>
+</div>
+
+
+<script>
+  var tabs = document.querySelector('paper-tabs');
+  tabs.addEventListener('core-select', function() {
+    console.log("Selected: " + tabs.selected);
+  });
+</script>
+</body>
+
+</html>

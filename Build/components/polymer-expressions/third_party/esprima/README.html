@@ -1,0 +1,43 @@
+<p>This is a modified version of the esprima library. The only changes are the removal of support for the full ECMAScript syntax. What remains is a very limited subset, which is:</p>
+
+<ul>
+  <li>Simple literal values (<code>true</code>, <code>false</code>, <code>null</code>, <code>undefined</code>, non-escaped strings &amp; decimal numbers)</li>
+  <li><code>this</code> keyword</li>
+  <li>Block statements</li>
+  <li>Expression statements</li>
+  <li>Ascii-only Identifiers</li>
+  <li>Labeled statements</li>
+  <li>Logical expressions</li>
+  <li>Member expressions (including computed)</li>
+  <li>Object/Array initializers</li>
+  <li>Non-side-effect unary &amp; binary expressions</li>
+</ul>
+
+<p>ORIGINAL README:</p>
+
+<p><strong>Esprima</strong> (<a href="http://esprima.org">esprima.org</a>, BSD license) is a high performance,
+standard-compliant <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a>
+parser written in ECMAScript (also popularly known as
+<a href="http://en.wikipedia.org/wiki/JavaScript&gt;JavaScript">JavaScript</a>).
+Esprima is created and maintained by <a href="http://twitter.com/ariyahidayat">Ariya Hidayat</a>,
+with the help of <a href="https://github.com/ariya/esprima/contributors">many contributors</a>.</p>
+
+<h3>Features</h3>
+
+<ul>
+  <li>Full support for ECMAScript 5.1 (<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>)</li>
+  <li>Sensible <a href="http://esprima.org/doc/index.html#ast">syntax tree format</a> compatible with Mozilla
+<a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Parser AST</a></li>
+  <li>Optional tracking of syntax node location (index-based and line-column)</li>
+  <li>Heavily tested (&gt; 600 <a href="http://esprima.org/test/">unit tests</a> with solid statement and branch coverage)</li>
+  <li>Experimental support for ES6/Harmony (module, class, destructuring, …)</li>
+</ul>
+
+<p>Esprima serves as a <strong>building block</strong> for some JavaScript
+language tools, from <a href="http://esprima.org/demo/functiontrace.html">code instrumentation</a>
+to <a href="http://esprima.org/demo/autocomplete.html">editor autocompletion</a>.</p>
+
+<p>Esprima runs on many popular web browsers, as well as other ECMAScript platforms such as
+<a href="http://www.mozilla.org/rhino">Rhino</a> and <a href="https://npmjs.org/package/esprima">Node.js</a>.</p>
+
+<p>For more information, check the web site <a href="http://esprima.org">esprima.org</a>.</p>
